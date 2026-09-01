@@ -5,22 +5,61 @@ interface Props {
 }
 
 const { ctaLabel = 'Subscribe free', align = 'left' } = Astro.props
+
+const dataOptions = JSON.stringify({
+  settings: {
+    after_subscribe: {
+      action: 'message',
+      success_message: 'Success! Now check your email to confirm your subscription.',
+      redirect_url: '',
+    },
+    return_visitor: { action: 'show', custom_content: '' },
+  },
+  version: '5',
+})
 ---
 
-<form class:list={['flex flex-col sm:flex-row gap-3 w-full max-w-md', align === 'center' && 'mx-auto']}>
-  <label for="email" class="sr-only">Email address</label>
-  <input
-    id="email"
-    name="email"
-    type="email"
-    required
-    placeholder="Email address"
-    class="flex-1 rounded-md border border-gold-dark/30 bg-white/70 px-4 py-3 text-sm text-ink placeholder:text-ink-soft/70 focus:outline-none focus:ring-2 focus:ring-gold"
-  />
-  <button
-    type="submit"
-    class="rounded-md bg-ink px-5 py-3 text-sm font-semibold text-cream transition-colors hover:bg-gold-deep"
-  >
-    {ctaLabel}
-  </button>
+<form
+  action="https://app.kit.com/forms/9871227/subscriptions"
+  method="post"
+  class:list={['seva-form formkit-form flex flex-col w-full max-w-md gap-2', align === 'center' && 'mx-auto']}
+  data-sv-form="9871227"
+  data-uid="087151a014"
+  data-format="inline"
+  data-version="5"
+  data-options={dataOptions}
+>
+  <ul class="formkit-alert formkit-alert-error hidden text-xs text-red-600" data-element="errors" data-group="alert"></ul>
+  <div data-element="fields" data-stacked="false" class="seva-fields formkit-fields flex flex-col sm:flex-row gap-3">
+    <div class="formkit-field flex-1">
+      <label for="email_address" class="sr-only">Email address</label>
+      <input
+        id="email_address"
+        name="email_address"
+        type="email"
+        required
+        aria-label="Email Address"
+        placeholder="Email address"
+        class="formkit-input w-full rounded-md border border-gold-dark/30 bg-white/70 px-4 py-3 text-sm text-ink placeholder:text-ink-soft/70 focus:outline-none focus:ring-2 focus:ring-gold"
+      />
+    </div>
+    <button
+      data-element="submit"
+      type="submit"
+      class="formkit-submit rounded-md bg-ink px-5 py-3 text-sm font-semibold text-cream transition-colors hover:bg-gold-deep"
+    >
+      <span>{ctaLabel}</span>
+    </button>
+  </div>
+  <div class="formkit-powered-by-convertkit-container flex justify-center">
+    <a
+      href="https://kit.com/features/forms?utm_campaign=poweredby&utm_content=form&utm_medium=referral&utm_source=dynamic"
+      data-element="powered-by"
+      class="text-[10px] text-ink-soft/50 hover:text-ink-soft transition-colors"
+      target="_blank"
+      rel="nofollow noopener"
+    >
+      Built with Kit
+    </a>
+  </div>
 </form>
