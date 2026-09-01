@@ -1,0 +1,47 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import ResourcesSubnav from '../../components/ResourcesSubnav.astro'
+
+const lessons = [
+  {
+    title: 'Study the whole ecosystem, not just the teams',
+    body: "Everyone applies to the club. Almost nobody looks at the agencies, sponsors, media companies, tech platforms, event producers, nonprofits, and facility operators around it — and those are hiring more often, with far less competition.",
+  },
+  {
+    title: 'Show up before you ask for anything',
+    body: "Volunteer. Attend the grassroots event. Do the unglamorous work with no agenda. People in this industry get asked for jobs constantly — they remember the person who was already in the room helping.",
+  },
+  {
+    title: "Take the door that's open, not just the one you wanted",
+    body: 'The "dream" role and the right room are not always the same door. A role you know nothing about can teach you more than the one you were chasing on paper.',
+  },
+  {
+    title: "Treat rejection as data, not a verdict",
+    body: "Don't go silent after a no. A thoughtful follow-up keeps the relationship alive. And if you keep hearing no for the same type of role, the market is telling you to widen your search.",
+  },
+  {
+    title: 'Your skills transfer more than your title does',
+    body: "Years behind a bar taught me how to read a room, defuse tension, and make strangers comfortable — none of which showed up on a resume, all of which mattered on the job.",
+  },
+]
+---
+
+<Layout title="Free Advice — Tales from a Serial Side-Quester" description="My free advice on breaking into the sports industry.">
+  <ResourcesSubnav />
+  <section class="mx-auto max-w-2xl px-6 py-16">
+    <h1 class="font-serif text-4xl font-semibold tracking-tight">My Free Advice to Get Into the Sports Industry</h1>
+    <p class="mt-3 text-ink-soft">(working title — this page will grow as the newsletter does)</p>
+
+    <div class="mt-10 space-y-8">
+      {lessons.map((lesson, i) => (
+        <div class="flex gap-4">
+          <span class="font-serif text-2xl font-semibold text-gold-dark">{String(i + 1).padStart(2, '0')}</span>
+          <div>
+            <h3 class="font-serif text-lg font-semibold">{lesson.title}</h3>
+            <p class="mt-1 text-sm text-ink-soft leading-relaxed">{lesson.body}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>

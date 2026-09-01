@@ -1,0 +1,44 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import ResourcesSubnav from '../../components/ResourcesSubnav.astro'
+
+const offers = [
+  {
+    title: 'Masterclass',
+    status: 'Coming soon',
+    body: 'A guided course on breaking into the sports industry — the ecosystem, the entry points, and how to actually get noticed. Working title, in development.',
+  },
+  {
+    title: '1:1 Consulting',
+    status: 'Book time',
+    body: "Want feedback on your own career-switch plan? I offer limited 1:1 consulting sessions. Details and booking link coming soon.",
+  },
+  {
+    title: 'Community',
+    status: 'Coming soon',
+    body: 'A space for career-switchers and side-questers to trade advice, hold each other accountable, and find their own way into sports and beyond.',
+  },
+]
+---
+
+<Layout title="Work With Me — Tales from a Serial Side-Quester" description="Masterclass, consulting, and community — coming soon.">
+  <ResourcesSubnav />
+  <section class="mx-auto max-w-2xl px-6 py-16">
+    <h1 class="font-serif text-4xl font-semibold tracking-tight">Work With Me</h1>
+    <p class="mt-3 text-ink-soft leading-relaxed">
+      A few ways to go deeper than the newsletter. Most of this is still in the works — subscribe to hear when it opens up.
+    </p>
+
+    <div class="mt-10 space-y-6">
+      {offers.map((offer) => (
+        <div class="rounded-lg border border-gold-dark/20 bg-white/50 p-6 flex items-start justify-between gap-4">
+          <div>
+            <h3 class="font-serif text-lg font-semibold">{offer.title}</h3>
+            <p class="mt-2 text-sm text-ink-soft leading-relaxed">{offer.body}</p>
+          </div>
+          <span class="shrink-0 rounded-full bg-gold/20 px-3 py-1 text-xs font-semibold text-gold-deep">{offer.status}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>

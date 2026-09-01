@@ -1,0 +1,50 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import ResourcesSubnav from '../../components/ResourcesSubnav.astro'
+
+const jobs = [
+  {
+    role: 'Bartender',
+    lesson: 'Years of reading a room, handling rejection, and making strangers comfortable — skills that never show up on a resume but show up on the job every day.',
+  },
+  {
+    role: 'Barista',
+    lesson: 'Fast, repetitive, people-facing work under pressure — the kind of grind that builds the patience to do unglamorous work well.',
+  },
+  {
+    role: 'Security Guard',
+    lesson: 'Staying calm and paying attention while nothing (or everything) is happening — useful training for high-stakes, high-pressure event environments.',
+  },
+  {
+    role: 'Travel Agent',
+    lesson: 'Selling an experience, not just a product — the same instinct that later translated into ticket and sponsorship sales.',
+  },
+  {
+    role: 'Business English Trainer (Spain)',
+    lesson: 'Teaching adults from different backgrounds and confidence levels — a crash course in communicating clearly across cultures.',
+  },
+  {
+    role: 'Inside Sales, Colorado Rapids',
+    lesson: "Not the dream role on paper, but the actual foot in the door — proof that the right room isn't always the one you were chasing.",
+  },
+]
+---
+
+<Layout title="My Professions — Tales from a Serial Side-Quester" description="The jobs before sports, and what each one taught me.">
+  <ResourcesSubnav />
+  <section class="mx-auto max-w-2xl px-6 py-16">
+    <h1 class="font-serif text-4xl font-semibold tracking-tight">The Jobs That Got Me Here</h1>
+    <p class="mt-3 text-ink-soft leading-relaxed">
+      Every one of these jobs happened before I worked a single day in sports. None of them looked like a career plan at the time. Looking back, every one of them was.
+    </p>
+
+    <div class="mt-10 grid sm:grid-cols-2 gap-6">
+      {jobs.map((job) => (
+        <div class="rounded-lg border border-gold-dark/20 bg-white/50 p-6">
+          <h3 class="font-serif text-lg font-semibold">{job.role}</h3>
+          <p class="mt-2 text-sm text-ink-soft leading-relaxed">{job.lesson}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>

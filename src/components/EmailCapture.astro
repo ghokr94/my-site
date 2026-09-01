@@ -1,0 +1,26 @@
+---
+interface Props {
+  ctaLabel?: string
+  align?: 'left' | 'center'
+}
+
+const { ctaLabel = 'Subscribe free', align = 'left' } = Astro.props
+---
+
+<form class:list={['flex flex-col sm:flex-row gap-3 w-full max-w-md', align === 'center' && 'mx-auto']}>
+  <label for="email" class="sr-only">Email address</label>
+  <input
+    id="email"
+    name="email"
+    type="email"
+    required
+    placeholder="Email address"
+    class="flex-1 rounded-md border border-gold-dark/30 bg-white/70 px-4 py-3 text-sm text-ink placeholder:text-ink-soft/70 focus:outline-none focus:ring-2 focus:ring-gold"
+  />
+  <button
+    type="submit"
+    class="rounded-md bg-ink px-5 py-3 text-sm font-semibold text-cream transition-colors hover:bg-gold-deep"
+  >
+    {ctaLabel}
+  </button>
+</form>

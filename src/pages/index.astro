@@ -1,17 +1,71 @@
 ---
-import '../styles/global.css'
+import Layout from '../layouts/Layout.astro'
+import EmailCapture from '../components/EmailCapture.astro'
+
+const whySubscribe = [
+  {
+    title: 'Real career-pivot stories',
+    body: 'No polished highlight reel — the actual jobs, dead ends, and lucky breaks that add up to a career change.',
+  },
+  {
+    title: 'Advice for breaking into sports',
+    body: 'Practical, unglamorous lessons on where the real entry points are and how to actually get noticed.',
+  },
+  {
+    title: 'One story a month, not a firehose',
+    body: 'A single monthly issue worth reading in full, instead of another daily inbox obligation.',
+  },
+]
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>My Site</title>
-	</head>
-	<body class="min-h-screen flex items-center justify-center">
-		<h1 class="text-3xl font-semibold">Site scaffold is live 🎉</h1>
-	</body>
-</html>
+<Layout title="Tales from a Serial Side-Quester">
+  <section class="mx-auto max-w-3xl px-6 pt-20 pb-16 text-center">
+    <h1 class="font-serif text-4xl sm:text-5xl font-semibold tracking-tight leading-tight">
+      Tales from a Serial Side-Quester
+    </h1>
+    <p class="mt-5 text-lg text-ink-soft">
+      Changing careers, chasing detours, and figuring it out in your 20s &amp; 30s.
+    </p>
+    <div class="mt-8 flex justify-center">
+      <EmailCapture align="center" />
+    </div>
+    <p class="mt-3 text-xs text-ink-soft">One story a month. No spam. Unsubscribe anytime.</p>
+  </section>
+
+  <section class="mx-auto max-w-5xl px-6 py-16 border-t border-gold-dark/20">
+    <div class="grid sm:grid-cols-3 gap-8">
+      {whySubscribe.map((item) => (
+        <div>
+          <h3 class="font-serif text-lg font-semibold">{item.title}</h3>
+          <p class="mt-2 text-sm text-ink-soft leading-relaxed">{item.body}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-5xl px-6 py-16 border-t border-gold-dark/20">
+    <h2 class="font-serif text-2xl font-semibold">Latest issue</h2>
+    <div class="mt-6 rounded-lg border border-dashed border-gold-dark/40 bg-cream-dim/60 px-8 py-12 text-center">
+      <p class="font-serif text-xl font-medium">Issue #1 — coming soon</p>
+      <p class="mt-2 text-sm text-ink-soft">The first issue is on its way. Subscribe above to get it the day it drops.</p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-5xl px-6 py-16 border-t border-gold-dark/20 grid sm:grid-cols-[1fr_auto] gap-8 items-center">
+    <div>
+      <h2 class="font-serif text-2xl font-semibold">About Garret</h2>
+      <p class="mt-3 text-ink-soft leading-relaxed max-w-xl">
+        A kid from New Jersey who bartended, tended bar in Spain, worked security, sold travel packages — and eventually talked his way into professional sports with no connections and no sports background. This newsletter is the story of how, one detour at a time.
+      </p>
+      <a href="/about" class="mt-4 inline-block text-sm font-semibold text-gold-dark hover:text-gold-deep transition-colors">Read more &rarr;</a>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-6 py-20 border-t border-gold-dark/20 text-center">
+    <h2 class="font-serif text-2xl font-semibold">One story, every month.</h2>
+    <p class="mt-2 text-ink-soft">Join the readers figuring out their own side quest.</p>
+    <div class="mt-6 flex justify-center">
+      <EmailCapture align="center" />
+    </div>
+  </section>
+</Layout>
