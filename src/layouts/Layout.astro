@@ -32,5 +32,20 @@ const { title, description = 'Weekly stories about chasing curiosity, welcoming 
 			<slot />
 		</main>
 		<Footer />
+		<script is:inline>
+			function restartWipeAnimations() {
+				document.querySelectorAll('.wipe-in').forEach((el) => {
+					el.style.animation = 'none'
+					el.offsetHeight
+					el.style.animation = ''
+				})
+			}
+			if (document.prerendering) {
+				document.addEventListener('prerenderingchange', restartWipeAnimations, { once: true })
+			}
+			window.addEventListener('pageshow', (event) => {
+				if (event.persisted) restartWipeAnimations()
+			})
+		</script>
 	</body>
 </html>
