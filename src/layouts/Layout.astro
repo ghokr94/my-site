@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css'
+import { ClientRouter } from 'astro:transitions'
 import Nav from '../components/Nav.astro'
 import Footer from '../components/Footer.astro'
 
@@ -23,6 +24,7 @@ const { title, description = 'Weekly stories about chasing curiosity, welcoming 
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 		<script src="https://f.convertkit.com/ckjs/ck.5.js" is:inline></script>
+		<ClientRouter />
 	</head>
 	<body class="font-sans text-ink bg-cream min-h-screen flex flex-col">
 		<Nav />
