@@ -1,0 +1,11 @@
+{
+  "headers": [
+    { "source": "/", "headers": [{ "key": "Cache-Control", "value": "no-store" }] },
+    { "source": "/about", "headers": [{ "key": "Cache-Control", "value": "no-store" }] },
+    { "source": "/archive", "headers": [{ "key": "Cache-Control", "value": "no-store" }] },
+    { "source": "/confirmed", "headers": [{ "key": "Cache-Control", "value": "no-store" }] },
+    { "source": "/resources", "headers": [{ "key": "Cache-Control", "value": "no-store" }] },
+    { "source": "/resources/professions", "headers": [{ "key": "Cache-Control", "value": "no-store" }] },
+    { "source": "/resources/work-with-me", "headers": [{ "key": "Cache-Control", "value": "no-store" }] }
+  ]
+}
