@@ -1,6 +1,6 @@
 ---
 const tabs = [
-  { href: '/resources', label: 'Free Advice' },
+  { href: '/resources', label: 'The 4 Pillars - A Free Guide' },
   { href: '/resources/professions', label: 'My Professions' },
   { href: '/resources/work-with-me', label: 'Work With Me' },
 ]
@@ -8,7 +8,7 @@ const current = Astro.url.pathname
 ---
 
 <div class="mx-auto max-w-5xl px-6 pt-4">
-  <div class="flex gap-2 border-b border-gold-dark/20">
+  <div class="flex justify-center gap-2 border-b border-gold-dark/20">
     {tabs.map((tab) => {
       const isActive = current === tab.href
       return (

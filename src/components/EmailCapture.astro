@@ -2,9 +2,16 @@
 interface Props {
   ctaLabel?: string
   align?: 'left' | 'center'
+  formId?: string
+  uid?: string
 }
 
-const { ctaLabel = 'Subscribe free', align = 'left' } = Astro.props
+const {
+  ctaLabel = 'Subscribe free',
+  align = 'left',
+  formId = '9871227',
+  uid = '087151a014',
+} = Astro.props
 
 const dataOptions = JSON.stringify({
   settings: {
@@ -20,11 +27,11 @@ const dataOptions = JSON.stringify({
 ---
 
 <form
-  action="https://app.kit.com/forms/9871227/subscriptions"
+  action={`https://app.kit.com/forms/${formId}/subscriptions`}
   method="post"
   class:list={['seva-form formkit-form flex flex-col w-full max-w-md gap-2', align === 'center' && 'mx-auto']}
-  data-sv-form="9871227"
-  data-uid="087151a014"
+  data-sv-form={formId}
+  data-uid={uid}
   data-format="inline"
   data-version="5"
   data-options={dataOptions}
