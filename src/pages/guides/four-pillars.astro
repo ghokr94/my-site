@@ -24,19 +24,23 @@ import Layout from '../../layouts/Layout.astro'
     </p>
 
     <div class="mt-8 flex justify-center">
-      <script async data-uid="3f5e4ccdaf" src="https://garretjames.kit.com/3f5e4ccdaf/index.js" is:inline></script>
-      <script is:inline>
+      <script async data-uid="3f5e4ccdaf" src="https://garretjames.kit.com/3f5e4ccdaf/index.js" is:inline data-astro-rerun></script>
+      <script is:inline data-astro-rerun>
         (function () {
-          var tries = 0
-          var interval = setInterval(function () {
+          function setLabel() {
             var span = document.querySelector('.formkit-form[data-uid="3f5e4ccdaf"] .formkit-submit span')
             if (span) {
               span.textContent = 'Get the free guide 🏈⚽⚾🏀🏒'
-              clearInterval(interval)
-            } else if (++tries > 100) {
-              clearInterval(interval)
+              return true
             }
-          }, 100)
+            return false
+          }
+          if (!setLabel()) {
+            var observer = new MutationObserver(function () {
+              if (setLabel()) observer.disconnect()
+            })
+            observer.observe(document.body, { childList: true, subtree: true })
+          }
         })()
       </script>
     </div>
