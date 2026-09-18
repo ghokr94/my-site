@@ -2,20 +2,6 @@
 import Layout from '../layouts/Layout.astro'
 import EmailCapture from '../components/EmailCapture.astro'
 
-const helps = [
-  {
-    title: 'Real career-pivot stories',
-    body: 'The actual jobs, dead ends, and lucky breaks that add up to a career change — not a polished highlight reel.',
-  },
-  {
-    title: 'How to break into sports with no connections',
-    body: 'Where the real entry points are, and how to get noticed when you have no resume line to lean on.',
-  },
-  {
-    title: 'Permission to take the long way',
-    body: 'Proof that bartending, security shifts, and unglamorous detours can still add up to the work you actually want.',
-  },
-]
 ---
 
 <Layout title="About - Garret James Hokr" description="A career-switcher's path from bartending to the sports industry.">
@@ -30,7 +16,7 @@ const helps = [
     </div>
   </section>
 
-  <section class="mx-auto max-w-2xl px-6 pb-16">
+  <section class="mx-auto max-w-2xl px-6 pb-2">
     <div class="space-y-6 text-ink-soft leading-relaxed">
       <p>
         My name is Garret James Hokr, <a href="#subscribe" class="underline text-gold-dark hover:text-gold-deep transition-colors">and every week I write for the dreamers</a>: those trying to break into the sports industry who maybe feel like they've got no real experience, no meaningful connections, no obvious way in.
@@ -77,22 +63,15 @@ const helps = [
       <p>
         If you're trying to navigate careers, pivot into sports, and go all in on the dream, <a href="#subscribe" class="underline text-gold-dark hover:text-gold-deep transition-colors">I'd love to have you along for the journey</a>.
       </p>
+      <img
+        src="/images/signature.jpg"
+        alt="Garret James Hokr signature"
+        class="mt-4 w-48 sm:w-56 mix-blend-multiply"
+      />
     </div>
   </section>
 
-  <section class="mx-auto max-w-3xl px-6 py-16 border-t border-gold-dark/20">
-    <h2 class="font-serif text-2xl font-semibold text-center sm:text-left">How this newsletter helps you</h2>
-    <div class="mt-8 grid sm:grid-cols-3 gap-8">
-      {helps.map((item) => (
-        <div>
-          <h3 class="font-serif text-lg font-semibold">{item.title}</h3>
-          <p class="mt-2 text-sm text-ink-soft leading-relaxed">{item.body}</p>
-        </div>
-      ))}
-    </div>
-  </section>
-
-  <section id="subscribe" class="mx-auto max-w-3xl px-6 py-20 border-t border-gold-dark/20 text-center">
+  <section id="subscribe" class="mx-auto max-w-3xl px-6 pt-4 pb-20 border-t border-gold-dark/20 text-center">
     <h2 class="font-serif text-2xl font-semibold">One story, every week.</h2>
     <p class="mt-2 text-ink-soft">Join the readers chasing their dream job in sports.</p>
     <div class="mt-6 flex justify-center">
