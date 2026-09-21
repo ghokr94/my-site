@@ -5,7 +5,10 @@
     { "source": "/archive", "headers": [{ "key": "Cache-Control", "value": "no-store" }] },
     { "source": "/confirmed", "headers": [{ "key": "Cache-Control", "value": "no-store" }] },
     { "source": "/resources", "headers": [{ "key": "Cache-Control", "value": "no-store" }] },
-    { "source": "/resources/professions", "headers": [{ "key": "Cache-Control", "value": "no-store" }] },
+    { "source": "/resources/my-journey", "headers": [{ "key": "Cache-Control", "value": "no-store" }] },
     { "source": "/resources/work-with-me", "headers": [{ "key": "Cache-Control", "value": "no-store" }] }
+  ],
+  "redirects": [
+    { "source": "/resources/professions", "destination": "/resources/my-journey", "permanent": true }
   ]
 }
