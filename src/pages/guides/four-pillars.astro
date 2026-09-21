@@ -51,9 +51,12 @@ const pillars = [
       <script is:inline data-astro-rerun>
         (function () {
           function setLabels() {
-            var spans = document.querySelectorAll('.formkit-form[data-uid="3f5e4ccdaf"] .formkit-submit span')
+            var spans = document.querySelectorAll(
+              '.formkit-form[data-uid="3f5e4ccdaf"] .formkit-submit span:not([data-label-set])'
+            )
             spans.forEach(function (span) {
               span.textContent = 'Get the free guide 🏈⚽⚾🏀🏒'
+              span.setAttribute('data-label-set', 'true')
             })
           }
           setLabels()
