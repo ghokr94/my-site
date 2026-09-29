@@ -1,16 +1,109 @@
 ---
 import Layout from '../../layouts/Layout.astro'
 import ResourcesSubnav from '../../components/ResourcesSubnav.astro'
+
+const offerings = [
+  {
+    n: '01',
+    name: 'Pep Talk',
+    price: 'Free',
+    detail: '15-minute intro call',
+    body: 'A no-pressure chat about where you are and where you want to go in sports.',
+    cta: 'Book a free call',
+    href: 'https://cal.com/garret-hokr-kdrguk/pep-talk',
+  },
+  {
+    n: '02',
+    name: 'Kickstart',
+    price: '$99',
+    detail: 'One 30-minute 1:1 session',
+    body: "Bring your situation, your questions, and let's map your next move.",
+    cta: 'Book the Kickstart',
+    href: 'https://cal.com/garret-hokr-kdrguk/kickstart',
+  },
+  {
+    n: '03',
+    name: 'Game Plan',
+    price: '$249',
+    detail: 'Two 30-minute sessions + CV & LinkedIn review',
+    body: 'Two 1:1 sessions plus a full review of your CV and LinkedIn, so you walk away with a plan and the materials to back it up.',
+    cta: 'Book the Game Plan',
+    href: 'https://cal.com/garret-hokr-kdrguk/game-plan-session',
+    featured: true,
+  },
+  {
+    n: '04',
+    name: 'All-In',
+    detail: 'Three sessions + CV & LinkedIn review + course + community',
+    comingSoon: true,
+  },
+]
 ---
 
-<Layout title="Work With Me - Garret James Hokr" description="Coming soon.">
+<Layout
+  title="Work With Me - Garret James Hokr"
+  description="1:1 consulting for breaking into the sports industry, from a free intro call to a full game plan."
+>
   <section class="mx-auto max-w-3xl px-6 pt-16 pb-10 text-center">
     <h1 class="font-serif text-[clamp(2.25rem,4.2vw,3.5rem)] font-semibold tracking-tight leading-tight">Resources</h1>
     <p class="mt-4 text-xl text-ink-soft">Guides and advice for breaking into the sports industry.</p>
   </section>
 
   <ResourcesSubnav />
-  <section class="mx-auto max-w-2xl px-6 py-24 text-center">
-    <h2 class="font-serif text-4xl sm:text-5xl font-semibold tracking-tight">Coming soon</h2>
+
+  <section class="mx-auto max-w-3xl px-6 pt-12 pb-2">
+    <div class="text-center">
+      <span class="text-xs font-semibold uppercase tracking-widest text-gold-dark">1:1 Consulting</span>
+      <h2 class="mt-2 font-serif text-3xl sm:text-4xl font-semibold tracking-tight">Work With Me</h2>
+      <p class="mx-auto mt-4 max-w-md leading-relaxed text-ink-soft">
+        Wherever you are on the path into sports, pick the level of support that fits. Not sure? Start with a free Pep Talk.
+      </p>
+    </div>
+
+    <div class="mt-10 grid gap-6 sm:grid-cols-2">
+      {offerings.map((o) => (
+        <div
+          class:list={[
+            'relative flex flex-col rounded-2xl border p-8 shadow-sm',
+            o.featured ? 'border-2 border-gold bg-white/80 shadow-md' : 'border-gold-dark/20 bg-white/50',
+            o.comingSoon && 'opacity-70',
+          ]}
+        >
+          {o.featured && (
+            <span class="absolute -top-3 left-8 rounded-full bg-gold px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-ink">
+              Most popular
+            </span>
+          )}
+          <span class="font-serif text-4xl font-semibold text-gold-dark/40">{o.n}</span>
+          <h3 class="mt-2 font-serif text-2xl font-semibold">{o.name}</h3>
+          {o.price && <p class="mt-3 font-serif text-3xl font-semibold text-gold-deep">{o.price}</p>}
+          <p class="mt-1 text-xs font-semibold uppercase tracking-widest text-gold-dark">{o.detail}</p>
+          {o.comingSoon ? (
+            <p class="mt-4 font-serif text-3xl font-semibold text-gold-deep">Coming soon</p>
+          ) : (
+            <p class="mt-4 leading-relaxed text-ink-soft">{o.body}</p>
+          )}
+          <div class="mt-auto pt-8">
+            {o.comingSoon ? (
+              <span
+                aria-disabled="true"
+                class="block w-full cursor-not-allowed rounded-md border border-gold-dark/30 px-6 py-3.5 text-center text-sm font-semibold text-ink-soft/60"
+              >
+                Coming soon
+              </span>
+            ) : (
+              <a
+                href={o.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="block w-full rounded-md bg-ink px-6 py-3.5 text-center text-sm font-semibold text-cream transition-colors hover:bg-gold-deep"
+              >
+                {o.cta} →
+              </a>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
   </section>
 </Layout>
