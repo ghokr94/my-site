@@ -1,0 +1,87 @@
+---
+import { render } from 'astro:content'
+import Layout from '../../layouts/Layout.astro'
+import EmailCapture from '../../components/EmailCapture.astro'
+import { getChapters, formatDate } from '../../lib/chapters'
+
+export async function getStaticPaths() {
+  const chapters = await getChapters()
+  return chapters.map((chapter) => ({ params: { slug: chapter.id }, props: { chapter } }))
+}
+
+const { chapter } = Astro.props
+const { Content } = await render(chapter)
+---
+
+<Layout
+  title={`Chapter ${chapter.data.chapter}: ${chapter.data.title} - Dream Job: Sports`}
+  description={chapter.data.description}
+>
+  <article class="mx-auto max-w-2xl px-6 pt-12 pb-4">
+    <img
+      src="/images/dream-job-sports-banner.png"
+      alt="Dream Job: Sports. Breaking into the sports industry, one week at a time."
+      class="aspect-[3/1] w-full rounded-lg border border-gold-dark/20 object-cover shadow-sm"
+    />
+
+    <header class="mt-12 text-center">
+      {chapter.data.draft && (
+        <span class="mb-4 inline-block rounded-full bg-gold/30 px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-gold-deep">
+          Draft: only visible on the preview
+        </span>
+      )}
+      <p class="text-xs font-semibold uppercase tracking-widest text-gold-dark">Chapter {chapter.data.chapter}</p>
+      <h1 class="mt-2 font-serif text-[clamp(2.25rem,4.2vw,3.5rem)] font-semibold tracking-tight leading-tight">
+        {chapter.data.title}
+      </h1>
+      <p class="mt-3 text-sm text-ink-soft">{formatDate(chapter.data.date)}</p>
+    </header>
+
+    <div class="chapter-body mt-12">
+      <Content />
+    </div>
+
+    <img
+      src="/images/signature-transparent.png"
+      alt="Garret James Hokr signature"
+      class="mt-10 w-44"
+    />
+  </article>
+
+  <section class="mx-auto max-w-2xl px-6 pt-12 pb-2">
+    <div class="rounded-2xl border border-gold-dark/20 bg-white/50 px-8 py-12 text-center shadow-sm">
+      <h2 class="font-serif text-2xl sm:text-3xl font-semibold">Get the next chapter in your inbox</h2>
+      <p class="mt-3 text-base text-ink-soft">One story a week. No spam. Unsubscribe anytime.</p>
+      <div class="mt-8 flex justify-center">
+        <EmailCapture align="center" />
+      </div>
+    </div>
+    <p class="mt-8 text-center">
+      <a href="/newsletter" class="text-sm font-semibold text-gold-dark hover:text-gold-deep transition-colors">&larr; All chapters</a>
+    </p>
+  </section>
+</Layout>
+
+<style>
+  .chapter-body :global(p) {
+    margin-top: 1.5em;
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--color-ink);
+  }
+  .chapter-body :global(p:first-child) {
+    margin-top: 0;
+  }
+  .chapter-body :global(strong) {
+    font-weight: 600;
+  }
+  .chapter-body :global(del) {
+    color: var(--color-ink-soft);
+  }
+  .chapter-body :global(a) {
+    color: var(--color-gold-dark);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+</style>

@@ -2,12 +2,14 @@
   "headers": [
     { "source": "/", "headers": [{ "key": "Cache-Control", "value": "no-store" }] },
     { "source": "/about", "headers": [{ "key": "Cache-Control", "value": "no-store" }] },
-    { "source": "/archive", "headers": [{ "key": "Cache-Control", "value": "no-store" }] },
+    { "source": "/newsletter", "headers": [{ "key": "Cache-Control", "value": "no-store" }] },
     { "source": "/confirmed", "headers": [{ "key": "Cache-Control", "value": "no-store" }] },
     { "source": "/guides/four-pillars", "headers": [{ "key": "Cache-Control", "value": "no-store" }] },
     { "source": "/work-with-me", "headers": [{ "key": "Cache-Control", "value": "no-store" }] }
   ],
   "redirects": [
+    { "source": "/archive", "destination": "/newsletter", "permanent": true },
+    { "source": "/archive/:slug", "destination": "/newsletter/:slug", "permanent": true },
     { "source": "/resources", "destination": "/guides/four-pillars", "permanent": true },
     { "source": "/resources/work-with-me", "destination": "/work-with-me", "permanent": true },
     { "source": "/resources/my-journey", "destination": "/", "permanent": true },
