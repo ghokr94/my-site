@@ -3,7 +3,8 @@ const links = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
   { href: '/archive', label: 'Archive' },
-  { href: '/resources', label: 'Resources' },
+  { href: '/guides/four-pillars', label: 'Free Guide' },
+  { href: '/work-with-me', label: 'Work With Me' },
 ]
 const current = Astro.url.pathname
 const isLinkActive = (href: string) => (href === '/' ? current === '/' : current.startsWith(href))
